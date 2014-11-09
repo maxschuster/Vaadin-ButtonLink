@@ -1,0 +1,15 @@
+@mixin buttonlink {
+    
+    .v-button.buttonlink {
+    	text-decoration: none;
+    
+    	&:hover {
+    		color: inherit;
+    	}
+    	
+    	&:active:after {
+   			@extend .v-button:focus:after;
+    	}
+    }
+    
+}

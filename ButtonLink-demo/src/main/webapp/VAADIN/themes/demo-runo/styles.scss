@@ -1,0 +1,10 @@
+@import "../runo/runo";
+@import "addons";
+
+// Prefix all selectors in your theme with .demo
+.demo-runo {
+
+	// Include valo theme styles in your theme
+	@include runo;
+    @include addons;
+}
