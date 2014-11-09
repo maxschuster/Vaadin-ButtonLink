@@ -21,8 +21,7 @@ import java.util.Arrays;
 import com.vaadin.shared.ui.link.LinkState;
 
 /**
- *
- * @author Max
+ * @author Max Schuster
  */
 public class ButtonLinkState extends LinkState {
     {

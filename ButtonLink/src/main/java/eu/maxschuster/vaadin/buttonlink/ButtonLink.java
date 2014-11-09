@@ -18,22 +18,57 @@ package eu.maxschuster.vaadin.buttonlink;
 
 import com.vaadin.server.Resource;
 import com.vaadin.shared.ui.BorderStyle;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Link;
 import eu.maxschuster.vaadin.buttonlink.client.ButtonLinkState;
 
 /**
- *
- * @author Max
+ * {@link ButtonLink} is a {@link Link} that looks like {@link Button}
+ * 
+ * @author Max Schuster
+ * @see Link
  */
+@SuppressWarnings("serial")
 public class ButtonLink extends Link {
 
+    /**
+     * Creates a new {@link ButtonLink}.
+     */
     public ButtonLink() {
+        super();
     }
 
+    /**
+     * Creates a new instance of {@link ButtonLink}.
+     * 
+     * @param caption
+     *            the Link text.
+     * @param resource
+     *            the Link href source
+     */
     public ButtonLink(String caption, Resource resource) {
         super(caption, resource);
     }
 
+    /**
+     * Creates a new instance of {@link ButtonLink} that opens a new window.
+     * 
+     * @param caption
+     *            the {@link ButtonLink} text.
+     * @param resource
+     *            the {@link ButtonLink} href source
+     * @param targetName
+     *            the name of the target window where the link opens to. Empty
+     *            name of null implies that the target is opened to the window
+     *            containing the link.
+     * @param width
+     *            the Width of the target window.
+     * @param height
+     *            the Height of the target window.
+     * @param border
+     *            the Border style of the target window.
+     * 
+     */
     public ButtonLink(String caption, Resource resource, String targetName,
             int width, int height, BorderStyle border) {
         super(caption, resource, targetName, width, height, border);
@@ -72,6 +107,11 @@ public class ButtonLink extends Link {
         return getState(false).iconAltText;
     }
 
+    /**
+     * Sets the icon's alt text.
+     *
+     * @param iconAltText The alt text
+     */
     public void setIconAlternateText(String iconAltText) {
         getState().iconAltText = iconAltText;
     }

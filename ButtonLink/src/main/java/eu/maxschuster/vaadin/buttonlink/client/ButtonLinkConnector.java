@@ -25,8 +25,7 @@ import com.vaadin.shared.ui.Connect;
 import eu.maxschuster.vaadin.buttonlink.ButtonLink;
 
 /**
- *
- * @author Max
+ * @author Max Schuster
  */
 @Connect(ButtonLink.class)
 public class ButtonLinkConnector extends LinkConnector {

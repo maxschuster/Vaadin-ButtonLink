@@ -22,8 +22,7 @@ import com.google.gwt.user.client.DOM;
 import com.vaadin.client.ui.VLink;
 
 /**
- *
- * @author Max
+ * @author Max Schuster
  */
 public class VButtonLink extends VLink {
     
