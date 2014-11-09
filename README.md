@@ -2,6 +2,10 @@
 
 ButtonLink is basically a Link component that looks like a Button
 
+## Demo
+
+[http://maxschuster.eu:8080/ButtonLink/#!demo-valo](http://maxschuster.eu:8080/ButtonLink/#!demo-valo)
+
 ## Maven
 
 ```xml
