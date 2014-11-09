@@ -33,6 +33,8 @@ import com.vaadin.server.Page.UriFragmentChangedListener;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.server.Page.UriFragmentChangedEvent;
+import com.vaadin.server.Resource;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -43,7 +45,11 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.CheckBox;
 
+/**
+ * @author Max Schuster
+ */
 @Title("ButtonLink Add-on Demo")
 @SuppressWarnings("serial")
 @Theme("demo-valo")
@@ -68,6 +74,9 @@ public class DemoUI extends UI {
     private final String defaultTheme = themes.get(0);
 
     private final ComboBox themeSelect = new ComboBox("Themes:", themes);
+    
+    private final Resource vaadinIcon =
+            new ThemeResource("icons/vaadin-logo-15x16.png");
 
     @Override
     protected void init(VaadinRequest request) {
@@ -116,11 +125,17 @@ public class DemoUI extends UI {
         });
         layout.addComponent(themeSelect);
         layout.setComponentAlignment(themeSelect, Alignment.BOTTOM_CENTER);
+        
+        final CheckBox useIcon = new CheckBox("Use icons");
+        useIcon.setValue(false);
+        layout.addComponent(useIcon);
 
         final HorizontalLayout comparsionLayout = new HorizontalLayout();
         comparsionLayout.setSpacing(true);
         layout.addComponent(comparsionLayout);
         layout.setComponentAlignment(comparsionLayout, Alignment.TOP_CENTER);
+        
+        
 
         final Button button = new Button("This is a \"normal\" Button", new Button.ClickListener() {
 
@@ -133,13 +148,30 @@ public class DemoUI extends UI {
         comparsionLayout.setComponentAlignment(button, Alignment.MIDDLE_RIGHT);
 
         // Initialize our new UI component
-        final ButtonLink componentLink = new ButtonLink("This is a ButtonLink", new ExternalResource("https://vaadin.com"));
-        componentLink.setTargetName("_blank");
-        componentLink.setDescription("Visit vaadin.com in a new tab or window.");
-        comparsionLayout.addComponent(componentLink);
-        comparsionLayout.setComponentAlignment(componentLink, Alignment.MIDDLE_LEFT);
+        final ButtonLink buttonLink = new ButtonLink("This is a ButtonLink",
+                new ExternalResource("https://vaadin.com"));
+        buttonLink.setTargetName("_blank");
+        buttonLink.setDescription("Visit vaadin.com in a new tab or window.");
+        comparsionLayout.addComponent(buttonLink);
+        comparsionLayout.setComponentAlignment(buttonLink, Alignment.MIDDLE_LEFT);
 
         themeName.setPropertyDataSource(themeSelect);
+        
+        
+        useIcon.addValueChangeListener(new ValueChangeListener() {
+
+            @Override
+            public void valueChange(ValueChangeEvent event) {
+                boolean b = (Boolean) event.getProperty().getValue();
+                if (b) {
+                    button.setIcon(vaadinIcon, "Vaadin Logo");
+                    buttonLink.setIcon(vaadinIcon, "Vaadin Logo");
+                } else {
+                    button.setIcon(null);
+                    buttonLink.setIcon(null);
+                }
+            }
+        });
 
         String fragment = getPage().getUriFragment();
 
