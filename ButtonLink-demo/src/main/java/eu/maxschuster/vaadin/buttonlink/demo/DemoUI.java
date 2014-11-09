@@ -152,6 +152,7 @@ public class DemoUI extends UI {
                 new ExternalResource("https://vaadin.com"));
         buttonLink.setTargetName("_blank");
         buttonLink.setDescription("Visit vaadin.com in a new tab or window.");
+        buttonLink.addStyleName("test-stylename");
         comparsionLayout.addComponent(buttonLink);
         comparsionLayout.setComponentAlignment(buttonLink, Alignment.MIDDLE_LEFT);
 

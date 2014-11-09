@@ -19,6 +19,7 @@ package eu.maxschuster.vaadin.buttonlink.client;
 import java.util.Arrays;
 
 import com.vaadin.shared.ui.link.LinkState;
+import java.util.LinkedList;
 
 /**
  * @author Max Schuster
@@ -26,7 +27,7 @@ import com.vaadin.shared.ui.link.LinkState;
 public class ButtonLinkState extends LinkState {
     {
         primaryStyleName = "v-button";
-        styles = Arrays.asList("buttonlink");
+        styles = new LinkedList<String>(Arrays.asList("buttonlink"));
     }
     public String iconAltText = "";
 }

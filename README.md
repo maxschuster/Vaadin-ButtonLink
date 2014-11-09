@@ -24,7 +24,7 @@ ButtonLink is basically a Link component that looks like a Button
     <dependency>
         <groupId>eu.maxschuster.vaadin</groupId>
         <artifactId>buttonlink</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
 <dependencies>
 ```
@@ -33,11 +33,11 @@ ButtonLink is basically a Link component that looks like a Button
 ### ivysettings.xml
 ```xml
 <resolvers>
-    <ibiblio name="maxschuster-buttonlink" usepoms="true" m2compatible="true"
+    <ibiblio name="buttonlink-mvn-repo" usepoms="true" m2compatible="true"
             root="https://raw.github.com/maxschuster/vaadin-buttonlink/mvn-repo/" />
 </resolvers>
 ```
 ### ivy.xml
 ```xml
-<dependency org="eu.maxschuster.vaadin" name="buttonlink" rev="1.0.0" />
+<dependency org="eu.maxschuster.vaadin" name="buttonlink" rev="1.0.1" />
 ```
