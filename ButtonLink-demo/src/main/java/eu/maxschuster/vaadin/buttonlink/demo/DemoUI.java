@@ -50,7 +50,11 @@ import com.vaadin.ui.Button.ClickEvent;
 public class DemoUI extends UI {
 
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class, widgetset = "eu.maxschuster.vaadin.buttonlink.demo.DemoWidgetSet")
+    @VaadinServletConfiguration(
+            productionMode = true,
+            ui = DemoUI.class,
+            widgetset = "eu.maxschuster.vaadin.buttonlink.demo.DemoWidgetSet"
+    )
     public static class Servlet extends VaadinServlet {
     }
 
